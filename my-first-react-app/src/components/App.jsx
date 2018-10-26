@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Loaded from './Loaded';
 import NotLoaded from './NotLoaded';
-import InputField from './InputField';
 
 // const App = (props) => {
 // 	return (
