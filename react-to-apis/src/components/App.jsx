@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import 'es6-promise';
 import 'isomorphic-fetch';
 import Card from './Card';
+import FrontPage from './FrontPage';
 
 class App extends Component {
   constructor(params) {
     super(params)
 
     this.state = {
-      card: []
+      card: [],
+      displayed: false
     }
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -22,20 +26,34 @@ class App extends Component {
         card: obj
       })
     });
-    console.log(this.state.card);
+  }
+
+  handleClick() {
+    this.setState({
+      displayed: true
+    })
   }
 
   render() {
-    if (!this.state.card.length)
-      return null;
 
-    return (
+    // if (this.state.displayed === true) {
+ 
+      if (!this.state.card.length)
+        return null;
 
-        this.state.card.map((card, id) => (
-          <Card title={ card.title } director={ card.director } description={ card.description } key={ card.id } />
-        ))
-
-    );
+      return (
+        <Fragment>
+          {this.state.card.map((card) => (
+            <Card appear={ this.state.displayed } title={ card.title } director={ card.director } description={ card.description } key={ card.id } />
+          ))}
+          <FrontPage appear={ this.state.displayed } src='https://ghibliapi.herokuapp.com/images/logo.svg' alt='Studio Ghibli Logo' onClick={ this.handleClick } />
+        </Fragment>
+      );
+    // } else {
+      // return (
+        
+      // )
+    // }
   }
   
 }
