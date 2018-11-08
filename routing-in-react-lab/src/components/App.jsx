@@ -4,6 +4,9 @@ import 'es6-promise';
 import 'isomorphic-fetch';
 import Home from './Home';
 import Films from './Films';
+import Film from './Film';
+import People from './People';
+import Person from './Person';
 
 
 class App extends Component {
@@ -13,12 +16,15 @@ class App extends Component {
 
       <Router>
         <Fragment>
-          <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/">Home</Link>
-          <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/films">Films</Link>
+          <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/">Go Home</Link>
+          <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/films">View Films</Link>
+          <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/people">View People</Link>
           <Switch>
             <Route exact path="/" component={ Home } />
             <Route exact path="/films" component={ Films } />
-            {/* <Route path='/films/:id' component={ Film } /> */}
+            <Route exact path='/films/:id' component={ Film } />
+            <Route exact path='/people' component={ People } />
+            <Route exact path='/people/:id' component={ Person } />
           </Switch>
         </Fragment>
       </Router>
