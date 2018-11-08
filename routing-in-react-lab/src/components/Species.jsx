@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import 'es6-promise';
 
-class Locations extends Component {
+class Species extends Component {
 
   constructor(params) {
     super(params)
@@ -13,7 +13,7 @@ class Locations extends Component {
   }
 
   componentDidMount() {
-    fetch('https://ghibliapi.herokuapp.com/locations')
+    fetch('https://ghibliapi.herokuapp.com/species')
       .then(res => res.json())
       .then(obj => {
         this.setState({
@@ -31,7 +31,7 @@ class Locations extends Component {
           <div className="card text-white bg-dark" style={{ innerWidth: '18rem', margin: '20px' }} >
             <div className="card-body">
               <h5 className="card-title">{ card.name }</h5>
-              <Link className="btn btn-light" to={`/locations/${card.id}`}>More Info</Link>
+              <Link className="btn btn-light" to={`/species/${card.id}`}>More Info</Link>
             </div>
           </div>
         </Fragment>
@@ -42,4 +42,4 @@ class Locations extends Component {
 
 }
 
-export default Locations;
+export default Species;
