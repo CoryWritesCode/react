@@ -11,6 +11,8 @@ import Locations from './Locations';
 import Location from './Location';
 import Species from './Species';
 import SingleSpecies from './SingleSpecies';
+import Vehicles from './Vehicles';
+import Vehicle from './Vehicle';
 
 
 class App extends Component {
@@ -25,6 +27,7 @@ class App extends Component {
           <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/people">View People</Link>
           <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/locations">View Locations</Link>
           <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/species">View Species</Link>
+          <Link className="btn btn-primary" style={{ margin: '10px', display: 'inline-block' }} to="/vehicles">View Vehicles</Link>
           <Switch>
             <Route exact path="/" component={ Home } />
             <Route exact path="/films" component={ Films } />
@@ -35,6 +38,8 @@ class App extends Component {
             <Route exact path='/locations/:id' component={ Location } />
             <Route exact path='/species' component={ Species } />
             <Route exact path='/species/:id' component={ SingleSpecies } />
+            <Route exact path='/vehicles' component={ Vehicles } />
+            <Route exact path='/vehicles/:id' component={ Vehicle } />
           </Switch>
         </Fragment>
       </Router>

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-class Location extends Component {
+class Vehicle extends Component {
 
   constructor(params) {
     super(params)
@@ -11,7 +11,7 @@ class Location extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://ghibliapi.herokuapp.com/locations/${this.props.match.params.id}`)
+    fetch(`https://ghibliapi.herokuapp.com/vehicles/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(obj => {
         this.setState({
@@ -27,12 +27,11 @@ class Location extends Component {
       <Fragment>
         <div className="card text-white bg-dark" style={{ innerWidth: '18rem', margin: '20px' }} >
           <div className="card-body">
-            <h4 className="card-title">{ this.state.card.name }</h4>
-            <h6 className="card-text text-light">Climate: { this.state.card.climate }</h6>
-            <h6 className="card-text text-light">Terrain: { this.state.card.terrain }</h6>
-            <h6 className="card-text text-light">Surface Water: { this.state.card.surface_water }</h6>
+            <h4 className="card-title">{this.state.card.name}  <small>({ this.state.card.vehicle_class })</small></h4>
+            <h6 className="card-text text-light">Length: { this.state.card.length }</h6>
+            <p className="card-text text-light">{ this.state.card.description }</p>
             <a href={ this.state.card.films } className='btn btn-primary' style={{ margin: '10px', display: 'inline-block' }}>Films</a>
-            <a href={ this.state.card.residents } className='btn btn-primary' style={{ margin: '10px', display: 'inline-block' }}>Residents</a>
+            <a href={ this.state.card.pilot } className='btn btn-primary' style={{ margin: '10px', display: 'inline-block' }}>Pilot</a>
           </div>
         </div>
       </Fragment>
@@ -42,4 +41,4 @@ class Location extends Component {
 
 }
 
-export default Location;
+export default Vehicle;
